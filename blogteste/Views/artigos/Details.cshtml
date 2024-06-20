@@ -1,0 +1,40 @@
+﻿@model blogteste.Models.artigos
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center my-4">Article Details</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title text-center">@Model.titulo</h4>
+                @if (!string.IsNullOrEmpty(Model.imagem))
+                {
+                    <div class="text-center mb-4">
+                        <img src="~/Images/@Model.imagem" class="img-fluid" alt="Article Image" />
+                    </div>
+                }
+                <dl class="row">
+                    <dt class="col-sm-3">Title</dt>
+                    <dd class="col-sm-9">@Model.titulo</dd>
+
+                    <dt class="col-sm-3">Content</dt>
+                    <dd class="col-sm-9">@Model.conteudo</dd>
+
+                    <dt class="col-sm-3">Author</dt>
+                    <dd class="col-sm-9">@Model.autor</dd>
+
+                    <dt class="col-sm-3">Date</dt>
+                    <dd class="col-sm-9">@Model.data.ToString("dd/MM/yyyy HH:mm")</dd>
+                </dl>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-action="Edit" asp-route-id="@Model.id" class="btn btn-primary">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
