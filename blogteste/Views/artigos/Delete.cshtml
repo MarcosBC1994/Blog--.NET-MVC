@@ -4,6 +4,12 @@
     ViewData["Title"] = "Delete";
 }
 
+<style>
+    body {
+        background-color: #6E6765;
+    }
+</style>
+
 <h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
@@ -37,7 +43,7 @@
         </dd>
     </dl>
 
-    @if (Model.autor == User.Identity.Name)
+    @if (Model.autor == User.Identity.Name || User.IsInRole("Admin"))
     {
         <form asp-action="Delete">
             <input type="hidden" asp-for="id" />
@@ -51,3 +57,9 @@
         <a asp-action="Index">Back to List</a>
     }
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

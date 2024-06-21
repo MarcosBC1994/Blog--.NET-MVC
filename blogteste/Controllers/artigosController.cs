@@ -27,7 +27,10 @@ namespace blogteste.Controllers
         // GET: artigos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.artigos.ToListAsync());
+            var artigos = await _context.artigos
+                .Where(a => a.IsAccessible || a.autor == User.Identity.Name)
+                .ToListAsync();
+            return View(artigos);
         }
 
         // GET: artigos/Details/5
@@ -39,7 +42,7 @@ namespace blogteste.Controllers
             }
 
             var artigos = await _context.artigos
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.id == id && (m.IsAccessible || m.autor == User.Identity.Name));
             if (artigos == null)
             {
                 return NotFound();
@@ -57,7 +60,7 @@ namespace blogteste.Controllers
         // POST: artigos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,titulo,conteudo,autor,data,IsAccessible")] artigos artigos, IFormFile imagem)
+        public async Task<IActionResult> Create([Bind("id,titulo,conteudo,autor,data,IsAccessible,rating")] artigos artigos, IFormFile imagem)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +109,7 @@ namespace blogteste.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,titulo,conteudo,autor,data")] artigos artigos, IFormFile imagem)
+        public async Task<IActionResult> Edit(int id, [Bind("id,titulo,conteudo,autor,data,IsAccessible,rating")] artigos artigos, IFormFile imagem)
         {
             if (id != artigos.id)
             {
@@ -128,6 +131,8 @@ namespace blogteste.Controllers
                     existingArtigo.conteudo = artigos.conteudo;
                     existingArtigo.autor = artigos.autor;
                     existingArtigo.data = artigos.data;
+                    existingArtigo.IsAccessible = artigos.IsAccessible;
+                    existingArtigo.rating = artigos.rating;
 
                     if (imagem != null)
                     {
@@ -192,8 +197,8 @@ namespace blogteste.Controllers
                 return NotFound();
             }
 
-            // Verifica se o usuário autenticado é o autor do post
-            if (artigos.autor != User.Identity.Name)
+            // Verifica se o usuário autenticado é o autor do post ou um administrador
+            if (artigos.autor != User.Identity.Name && !User.IsInRole("Admin"))
             {
                 return Forbid();
             }
@@ -208,8 +213,8 @@ namespace blogteste.Controllers
         {
             var artigos = await _context.artigos.FindAsync(id);
 
-            // Verifica se o usuário autenticado é o autor do post
-            if (artigos.autor != User.Identity.Name)
+            // Verifica se o usuário autenticado é o autor do post ou um administrador
+            if (artigos.autor != User.Identity.Name && !User.IsInRole("Admin"))
             {
                 return Forbid();
             }
@@ -229,6 +234,5 @@ namespace blogteste.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-     
     }
 }

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\blogteste.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\1b51e58b-d2e5-400b-9f52-35603dbaa6e8_mercedes f1.jpg",
+      "PackagePath": "staticwebassets\\Images\\1b51e58b-d2e5-400b-9f52-35603dbaa6e8_mercedes f1.jpg"
+    },
+    {
       "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\2e347aac-ceed-474e-b0c2-9eabb7447e0b_dNtJHbd-ayrton-senna-wallpaper.jpg",
       "PackagePath": "staticwebassets\\Images\\2e347aac-ceed-474e-b0c2-9eabb7447e0b_dNtJHbd-ayrton-senna-wallpaper.jpg"
     },
@@ -13,12 +17,28 @@
       "PackagePath": "staticwebassets\\Images\\3f26223a-24a9-4f76-8fc5-7afa0d0ad2e0_redbullf1.jpg"
     },
     {
+      "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\42a6211d-1e1b-4b18-a2fb-1b94a27d91d8_redbullf1.jpg",
+      "PackagePath": "staticwebassets\\Images\\42a6211d-1e1b-4b18-a2fb-1b94a27d91d8_redbullf1.jpg"
+    },
+    {
       "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\6e16a535-b0f7-469e-823d-fe3fb3d08fd3_redbullf1.jpg",
       "PackagePath": "staticwebassets\\Images\\6e16a535-b0f7-469e-823d-fe3fb3d08fd3_redbullf1.jpg"
     },
     {
       "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\9f8687e0-9daf-45d2-ba7a-b1fc433087a5_pepe bofia.jpg",
       "PackagePath": "staticwebassets\\Images\\9f8687e0-9daf-45d2-ba7a-b1fc433087a5_pepe bofia.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\dae47fcd-9631-4160-90f2-c6d6d3520f52_mclaren.png",
+      "PackagePath": "staticwebassets\\Images\\dae47fcd-9631-4160-90f2-c6d6d3520f52_mclaren.png"
+    },
+    {
+      "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\logo.jpg",
+      "PackagePath": "staticwebassets\\Images\\logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\Images\\logo.png",
+      "PackagePath": "staticwebassets\\Images\\logo.png"
     },
     {
       "Id": "C:\\Users\\marco\\Desktop\\.net\\blogteste\\blogteste\\wwwroot\\css\\site.css",

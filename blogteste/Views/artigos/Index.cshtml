@@ -4,13 +4,23 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    body {
+        background-color: #6E6765;
+    }
+
+    .card {
+        background-color: #ffffff;
+    }
+</style>
+
 <h1 class="text-center my-4">Articles</h1>
 
 <div class="row justify-content-center mb-4">
     <div class="col-md-8">
         <form asp-action="Index" method="get" class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Search by title" name="searchString" value="@ViewData["CurrentFilter"]" />
-            <button class="btn btn-outline-secondary" type="submit">Search</button>
+            <button class="btn btn-warning" type="submit">Search</button>
         </form>
     </div>
 </div>
@@ -33,6 +43,7 @@
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.titulo)</h5>
                     <p class="card-text text-truncate">@Html.DisplayFor(modelItem => item.conteudo)</p>
+                    <p class="card-text"><strong>Rating:</strong> @Html.DisplayFor(modelItem => item.rating)</p>
                 </div>
                 <div class="card-footer text-center">
                     <a asp-action="Edit" asp-route-id="@item.id" class="btn btn-primary">Edit</a>

@@ -8,7 +8,9 @@
         public string autor { get; set; }
         public DateTime data { get; set; }
 
+        public string rating { get; set; } // Adicionado para rating
+
         public string ? imagem { get; set; } // Adicionado para imagem
-        public bool IsAccessible { get; set; } // Adicionado para acessibilidade
+        public bool IsAccessible { get; set; } 
     }
 }
